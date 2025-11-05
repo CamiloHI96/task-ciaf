@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "vite build && gh-pages -d dist",
     "android": "vite build && npx cap copy && npx cap open android"
   },
   "dependencies": {
