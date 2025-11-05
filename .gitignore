@@ -1,4 +1,4 @@
-# Logs
+# 🧾 Logs
 logs
 *.log
 npm-debug.log*
@@ -7,12 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# 🧩 Dependencias y builds
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# ⚙️ Archivos de entorno (por defecto ignorados)
+.env
+.env.*
+# 👇 Descomenta estas 2 líneas si quieres subir tus archivos .env específicos
+# !.env
+# !.env.production
+
+# 💻 Archivos y configuraciones de editores
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +30,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 🧱 Proyecto Android (Capacitor)
+android/.gradle
+android/app/build
+android/build
+android/captures
+android/local.properties
+android/.idea
