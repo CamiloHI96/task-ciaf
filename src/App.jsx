@@ -82,34 +82,24 @@ function App() {
       return;
     }
 
-    const url = `https://apiciaf.posnube.xyz/api/editar/${indiceEditando}`;
-    const data = { tarea, responsable, fecha };
+    const url = `https://apiciaf.posnube.xyz/api/editar/${indiceEditando}/${tarea}/${responsable}`;
 
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => {
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      return res.json();
-    })
-    .then(r => {
-      if (r.estado === "ok") {
-        cargarTareas();
-        setTarea("");
-        setResponsable("");
-        setIndiceEditando(null);
-      } else {
-        alert(r.resp);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Error al modificar la tarea");
-    });
+    fetch(url, { method: 'GET' })
+      .then(res => res.json())
+      .then(r => {
+        if (r.estado === "ok") {
+          cargarTareas();
+          setTarea("");
+          setResponsable("");
+          setIndiceEditando(null);
+        } else {
+          alert(r.msg);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error al modificar la tarea");
+      });
   };
 
   {/* Cambiar estado de una tarea por id */}
