@@ -14,11 +14,8 @@ dist-ssr
 *.local
 
 # ⚙️ Archivos de entorno (por defecto ignorados)
-.env
-.env.*
-# 👇 Descomenta estas 2 líneas si quieres subir tus archivos .env específicos
-# !.env
-# !.env.production
+.env            # se ignoran los .env normales (locales o para capacitor)
+!.env.production # pero se permite subir el .env.production para GitHub Pages
 
 # 💻 Archivos y configuraciones de editores
 .vscode/*
